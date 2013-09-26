@@ -14,6 +14,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def archive
+    @posts = Post.all
+  end
+  
   def show
     @post = Post.find(params[:id])
   end
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at desc").limit(5)
   end
   
   def destroy
