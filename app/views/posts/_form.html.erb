@@ -9,17 +9,20 @@
     </ul>
   </div>
   <% end %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+  <div class="form-group">
+    <h4>
+      <%= f.label :title %>
+    </h4>
+    <%= f.text_field :title, class: "form-control", placeholder: "Text input"%>
+  </div>
  
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
+  <div class="form-group">
+    <h4><%= f.label :text %></h4>
+    <%= f.text_area :text, class: "form-control", placeholder: "Text input" %>
+  </div>
  
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+
