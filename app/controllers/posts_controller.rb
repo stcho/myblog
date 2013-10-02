@@ -20,7 +20,16 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @tags = Tag.all
   end
+  
+  def add_tag
+    @post = Post.find(params[:id])
+    #do sumthin crzy get tag make join model with association
+    @tag = Tag.find(params[:tag_id])
+    #make the join model
+    redirect_to @post
+  end    
   
   def edit
     @post = Post.find(params[:id])

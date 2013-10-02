@@ -12,4 +12,6 @@
  *= require_tree .
  */
  
- 
+ .myform-control {
+   width: 50%;
+ }
