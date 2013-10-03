@@ -1,0 +1,6 @@
+<%= form_for([@post, @post.tags.build]) do |tag| %>
+  <p>
+    <%= tag.text_field :name %>
+  </p>
+  <%= tag.submit%>
+<% end %>

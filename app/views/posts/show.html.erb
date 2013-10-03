@@ -19,10 +19,9 @@
   <%= link_to 'Back to Posts', posts_path %>
 
   <br>
+  <h3>Add Tags</h3>
+  <%= render "tags/form" %>
+    
   <h3>Tags</h3>
-  <ul>
-  <% @tags.each do |tag| %>
-    <li><% link_to tag.name, { action: 'add_tag', tag_id: tag.id }, { method: :post }%></li>
-  <% end%>
-  </ul>
+  <%= render @post.tags%>
 </div>
