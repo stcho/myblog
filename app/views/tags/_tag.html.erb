@@ -1,0 +1,2 @@
+<li><%= link_to tag.name, { action: 'add_tag', tag_id: tag.id }, { method: :post }%></li>
+<%= link_to 'Delete Tag', post_tags_path(tag), method: :delete, data: { confirm: 'Are you sure?' } %>

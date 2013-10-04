@@ -10,6 +10,10 @@ class TagsController < ApplicationController
   end
   
   def destroy
+    @post = Post.find(params[:post_id])
+    @tag = @post.tags.find(params[:id])
+    @tag.destroy
+    redirect_to post_path(@post)
   end
   
   def index

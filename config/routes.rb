@@ -1,10 +1,10 @@
 Blog::Application.routes.draw do
-  get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :posts do
     resources :comments
     resources :tags
+    
     member do 
       post'add_tag'
     end
@@ -14,12 +14,13 @@ Blog::Application.routes.draw do
     end
   end
   
+  resources :users
 
+  get "users/sign_in"
+  post "users/sign_in"
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # root 'users#sign_in'
   
-  
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
