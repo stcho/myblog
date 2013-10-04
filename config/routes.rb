@@ -4,6 +4,7 @@ Blog::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :posts do
     resources :comments
+    resources :tags
     member do 
       post'add_tag'
     end
@@ -13,7 +14,7 @@ Blog::Application.routes.draw do
     end
   end
   
-  resources :tags
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   

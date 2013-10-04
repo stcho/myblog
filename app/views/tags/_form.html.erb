@@ -1,6 +1,6 @@
-<%= form_for([@post, @post.tags.build]) do |tag| %>
+<%= form_for ([@post, @post.tags.build]) do |f| %>
   <p>
-    <%= tag.text_field :name %>
+    <%= f.text_field :name %>
   </p>
-  <%= tag.submit%>
+  <%= f.submit%>
 <% end %>

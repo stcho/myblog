@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].permit(:title, :text))
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to @post
@@ -25,9 +25,7 @@ class PostsController < ApplicationController
   
   def add_tag
     @post = Post.find(params[:id])
-    #do sumthin crzy get tag make join model with association
-    @tag = Tag.find(params[:tag_id])
-    #make the join model
+    @tag = Tag.find(params[:tag_id]) 
     redirect_to @post
   end    
   
