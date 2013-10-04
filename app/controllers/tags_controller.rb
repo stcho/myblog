@@ -17,7 +17,7 @@ class TagsController < ApplicationController
   end
   
   def index
-    @tags = Tag.order()
+    @tags = Tag.order("name")
   end
 
   private

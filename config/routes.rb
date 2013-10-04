@@ -14,10 +14,16 @@ Blog::Application.routes.draw do
     end
   end
   
-  resources :users
+  resources :users do
+    collection do
+      get "sign_in"
+      post "sign_in"
+    end
+  end
+  
+  # get "users/sign_in"
+  # post "users/sign_in"
 
-  get "users/sign_in"
-  post "users/sign_in"
   # You can have the root of your site routed with "root"
   # root 'users#sign_in'
   
