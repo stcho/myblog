@@ -23,11 +23,11 @@ class PostsController < ApplicationController
     @tags = Tag.all
   end
   
-  def add_tag
-    @post = Post.find(params[:id])
-    @tag = Tag.find(params[:tag_id]) 
+  def tag
+    @post_tag = PostTag.find(params[:tag_id])
+    @post = Post.find(@post_tag.post_id)
     redirect_to @post
-  end    
+  end
   
   def edit
     @post = Post.find(params[:id])
@@ -45,6 +45,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.order("created_at desc").limit(5)
+    @tags = Tag.all
   end
   
   def destroy

@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
-  def sign_in
-    
+  def sign_in 
+    @user = User.new  
+  end
+  
+  def authenticate
+    @user = User.where({email: params[:user][:email], password: params[:user][:password]}).first
+       if @user.nil?
+         flash[:error] = 'Invalid email or password' 
+         redirect_to sign_in_users_path
+       else
+         redirect_to posts_path
+       end
   end
   
   def new
@@ -9,8 +19,12 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to @user
+
+    if @user.save
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
   
   def edit

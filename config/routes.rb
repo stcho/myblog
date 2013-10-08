@@ -11,18 +11,21 @@ Blog::Application.routes.draw do
     
     collection do
       get "archive"
+      post 'tag'
     end
   end
+
+  # get 'sign_in', to: "users/new"
   
   resources :users do
     collection do
       get "sign_in"
-      post "sign_in"
+      post "authenticate"
     end
   end
   
-  # get "users/sign_in"
-  # post "users/sign_in"
+  # get '/register', to: "users/new"
+  
 
   # You can have the root of your site routed with "root"
   # root 'users#sign_in'

@@ -1,4 +1,5 @@
 <div class="container">
+  
   <div>
     <h3><strong>Title:</strong></h3>
     <p><%= @post.title %></p>
@@ -21,7 +22,7 @@
   <%= render "comments/form" %>
   <br>    
   <h3>Tags</h3>
-  <%= render @post.tags%>
+  <%= render @post.tags %>
 
   <h3>Add Tags</h3>
   <%= render "tags/form" %>

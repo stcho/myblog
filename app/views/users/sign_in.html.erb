@@ -2,5 +2,37 @@
   <h1>TCho's Blog</h1>
   <h2>Sign In</h2>
 
+  <% unless flash[:error].nil? %>
+  <div class="alert alert-danger">
+    <p><%= flash[:error] %></p>
+  </div>
+  <% end %>
 
+  <%= form_for @user, url: authenticate_users_path do |f|%>
+  
+  <% if @user.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <%= f.label :password %><br>
+      <%= f.text_field :password %>
+    </p>
+
+    <p>
+       <%= f.submit "Let's Go!"%>
+    </p>
+  <% end %>
 </div>
