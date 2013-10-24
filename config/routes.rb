@@ -1,31 +1,25 @@
 Blog::Application.routes.draw do
+  root 'posts#index'
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :posts do
     resources :comments
-    resources :tags
-    
-    member do 
-      post'add_tag'
-    end
     
     collection do
       get "archive"
       post 'tag'
     end
+    
   end
+  
+  resources :tags
+  
+  resources :users
 
   # get 'sign_in', to: "users/new"
   
-  resources :users do
-    collection do
-      get "sign_in"
-      post "authenticate"
-    end
-  end
-  
   # get '/register', to: "users/new"
-  
 
   # You can have the root of your site routed with "root"
   # root 'users#sign_in'

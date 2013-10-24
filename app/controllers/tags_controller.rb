@@ -7,6 +7,10 @@ class TagsController < ApplicationController
     @post = Post.find(params[:post_id])
     @tag = @post.tags.create(tag_params)
     redirect_to post_path(@post)
+    
+    #search all the tags in the system, is there a tag with this name?
+    # if tag not found create a new tag if found use that tag
+    # make a new post_tag objet that has the tag and post
   end
   
   def destroy

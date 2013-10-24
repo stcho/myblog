@@ -1,17 +1,4 @@
 class UsersController < ApplicationController
-  def sign_in 
-    @user = User.new  
-  end
-  
-  def authenticate
-    @user = User.where({email: params[:user][:email], password: params[:user][:password]}).first
-       if @user.nil?
-         flash[:error] = 'Invalid email or password' 
-         redirect_to sign_in_users_path
-       else
-         redirect_to posts_path
-       end
-  end
   
   def new
     @user = User.new

@@ -1,7 +1,16 @@
 <h1>Listing Users</h1>
 
+<p>
+  <% if user_signed_in? %>
+    <%= 'Hello ' + current_user.name + ' | ' + current_user.email %>
+    <%= link_to( 'Sign out', destroy, user_session_path, {method: :delete} )%>
+    <% else %>
+    <p>NOT SIGNED IN</p>
+    <%= link_to( 'Log in', new_user_session_path ) %>
+    <% end%>
+</p>
+
 <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
-<%= link_to 'User SignIn', sign_in_users_path, class: "btn btn-success" %>
 <%= link_to 'Posts', posts_path, class: "btn btn-info"%>
    
 <table class="table table-hover">
